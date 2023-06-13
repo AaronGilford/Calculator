@@ -13,3 +13,17 @@ const operate = function(a, b, operator) {
     else if (operator == "*") {multiply(a, b);}
     else if (operator == "/") {divide(a, b)};
 }
+
+let displayValue = "";
+
+let display = document.querySelector('#display');
+let numberBtns = document.querySelectorAll(".num");
+
+for (i of numberBtns) {
+    i.addEventListener('click', (e) => {
+        displayValue = displayValue + e.target.textContent;
+        display.textContent = displayValue;
+    })
+}
+
+
