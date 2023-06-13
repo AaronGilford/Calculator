@@ -7,11 +7,15 @@ let a;
 let b;
 let operator;
 
-const operate = function(a, b, operator) {
-    if (operator == "+") {add(a, b);}
-    else if (operator == "-") {subtract(a, b);}
-    else if (operator == "*") {multiply(a, b);}
-    else if (operator == "/") {divide(a, b)};
+const operate = function() {
+    if (operator == "+") {
+        display.textContent = add(a, b);
+    } else if (operator == "-") {
+        display.textContent = subtract(a, b); 
+    } else if (operator == "*") {
+        display.textContent = multiply(a, b);
+    } else if (operator == "/") {
+        display.textContent = divide(a, b)};
 }
 
 let displayValue = "";
@@ -26,4 +30,27 @@ for (i of numberBtns) {
     })
 }
 
+let operatorBtns = document.querySelectorAll('.operator');
 
+for (j of operatorBtns) {
+    j.addEventListener('click', (e) => {
+        a = parseInt(displayValue);
+        displayValue = "";
+        operator = e.target.textContent;
+    })
+}
+
+let equalsBtn = document.querySelector('#equals');
+
+equalsBtn.addEventListener('click', () => {   
+    b = parseInt(displayValue);
+    operate();
+    displayValue = "";
+})
+
+let clearBtn = document.querySelector('#clearBtn')
+
+clearBtn.addEventListener('click', () => {
+    displayValue = "";
+    display.textContent = "Cleared";
+})
