@@ -3,8 +3,8 @@ const subtract = (a, b) => {return a - b;}
 const multiply = (a, b) => {return a * b;}
 const divide = (a, b) => {return a / b;}
 
-let a;
-let b;
+let a = 0;
+let b = 0;
 let operator;
 
 const operate = function() {
@@ -34,9 +34,18 @@ let operatorBtns = document.querySelectorAll('.operator');
 
 for (j of operatorBtns) {
     j.addEventListener('click', (e) => {
-        a = parseInt(displayValue);
-        displayValue = "";
-        operator = e.target.textContent;
+        if (a !== 0) {
+            b = parseInt(displayValue);
+            operate();
+            a = parseInt(display.textContent);
+            b = 0;
+            displayValue = "";
+            operator = e.target.textContent;
+        } else {
+            a = parseInt(displayValue);
+            displayValue = "";
+            operator = e.target.textContent;
+        }
     })
 }
 
@@ -45,7 +54,6 @@ let equalsBtn = document.querySelector('#equals');
 equalsBtn.addEventListener('click', () => {   
     b = parseInt(displayValue);
     operate();
-    displayValue = "";
 })
 
 let clearBtn = document.querySelector('#clearBtn')
@@ -53,4 +61,6 @@ let clearBtn = document.querySelector('#clearBtn')
 clearBtn.addEventListener('click', () => {
     displayValue = "";
     display.textContent = "Cleared";
+    a = 0;
+    b = 0;
 })
