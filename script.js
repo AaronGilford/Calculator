@@ -1,7 +1,7 @@
-const add = (a, b) => {return a + b;}
-const subtract = (a, b) => {return a - b;}
-const multiply = (a, b) => {return a * b;}
-const divide = (a, b) => {return a / b;}
+const add = (a, b) => {return (a + b).toFixed(8);}
+const subtract = (a, b) => {return (a - b).toFixed(8);}
+const multiply = (a, b) => {return (a * b).toFixed(8);}
+const divide = (a, b) => {return (a / b).toFixed(8);}
 
 let a = 0;
 let b = 0;
@@ -16,6 +16,7 @@ const operate = function() {
         display.textContent = multiply(a, b);
     } else if (operator == "/") {
         display.textContent = divide(a, b)};
+    
 }
 
 let displayValue = "";
