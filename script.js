@@ -31,6 +31,9 @@ for (i of numberBtns) {
     i.addEventListener('click', (e) => {
         displayValue = displayValue + e.target.textContent;
         display.textContent = displayValue;
+        if (displayValue.includes('.')) {
+            document.querySelector('#decimal').disabled = true;
+        }
     })
 }
 
@@ -50,6 +53,7 @@ for (j of operatorBtns) {
             displayValue = "";
             operator = e.target.textContent;
         }
+        document.querySelector('#decimal').disabled = false;
     })
 }
 
@@ -75,3 +79,5 @@ clearBtn.addEventListener('click', () => {
     a = 0;
     b = 0;
 })
+
+
