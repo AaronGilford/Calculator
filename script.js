@@ -1,7 +1,7 @@
-const add = (a, b) => {return (a + b).toFixed(8);}
-const subtract = (a, b) => {return (a - b).toFixed(8);}
-const multiply = (a, b) => {return (a * b).toFixed(8);}
-const divide = (a, b) => {return (a / b).toFixed(8);}
+const add = (a, b) => {return +(a + b).toFixed(8);}
+const subtract = (a, b) => {return +(a - b).toFixed(8);}
+const multiply = (a, b) => {return +(a * b).toFixed(8);}
+const divide = (a, b) => {return +(a / b).toFixed(8);}
 
 let a = 0;
 let b = 0;
@@ -14,8 +14,11 @@ const operate = function() {
         display.textContent = subtract(a, b); 
     } else if (operator == "*") {
         display.textContent = multiply(a, b);
-    } else if (operator == "/") {
-        display.textContent = divide(a, b)};
+    } else if (operator == "/" && b !== 0) {
+        display.textContent = divide(a, b)
+    } else if (operator == "/" && b == 0) {
+        display.textContent = "No dividing by 0!";
+    }
     
 }
 
@@ -52,9 +55,16 @@ for (j of operatorBtns) {
 
 let equalsBtn = document.querySelector('#equals');
 
-equalsBtn.addEventListener('click', () => {   
-    b = parseInt(displayValue);
-    operate();
+equalsBtn.addEventListener('click', () => {  
+    if (displayValue == "") {
+        display.textContent = "Error"
+    } else {
+        b = parseInt(displayValue);
+        operate();
+        a = 0;
+        b = 0;
+        displayValue = "";
+    }
 })
 
 let clearBtn = document.querySelector('#clearBtn')
