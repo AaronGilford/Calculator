@@ -39,14 +39,14 @@ let operatorBtns = document.querySelectorAll('.operator');
 for (j of operatorBtns) {
     j.addEventListener('click', (e) => {
         if (a !== 0) {
-            b = parseInt(displayValue);
+            b = parseFloat(displayValue);
             operate();
-            a = parseInt(display.textContent);
+            a = parseFloat(display.textContent);
             b = 0;
             displayValue = "";
             operator = e.target.textContent;
         } else {
-            a = parseInt(displayValue);
+            a = parseFloat(displayValue);
             displayValue = "";
             operator = e.target.textContent;
         }
@@ -59,7 +59,7 @@ equalsBtn.addEventListener('click', () => {
     if (displayValue == "") {
         display.textContent = "Error"
     } else {
-        b = parseInt(displayValue);
+        b = parseFloat(displayValue);
         operate();
         a = 0;
         b = 0;
