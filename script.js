@@ -69,6 +69,25 @@ for (j of operatorBtns) {
     })
 }
 
+document.addEventListener('keydown', (e) => {
+    if (e.key === "+" || e.key === "-" || e.key === "*" || e.key === "/") {
+        e.preventDefault();
+        if (a !== 0) {
+            b = parseFloat(displayValue);
+            operate();
+            a = parseFloat(display.textContent);
+            b = 0;
+            displayValue = "";
+            operator = e.key;
+        } else {
+            a = parseFloat(displayValue);
+            displayValue = "";
+            operator = e.key;
+        }
+        document.querySelector('#decimal').disabled = false;
+    }
+})
+
 let equalsBtn = document.querySelector('#equals');
 
 equalsBtn.addEventListener('click', () => {  
@@ -83,6 +102,21 @@ equalsBtn.addEventListener('click', () => {
     }
 })
 
+document.addEventListener('keydown', (e) => {
+    if (e.key === '=' || e.key === 'Enter') {
+        e.preventDefault();
+        if (displayValue == "") {
+            display.textContent = "Error"
+        } else {
+            b = parseFloat(displayValue);
+            operate();
+            a = 0;
+            b = 0;
+            displayValue = "";
+        }
+    }
+})
+
 let clearBtn = document.querySelector('#clearBtn')
 
 clearBtn.addEventListener('click', () => {
@@ -90,6 +124,16 @@ clearBtn.addEventListener('click', () => {
     display.textContent = "Cleared";
     a = 0;
     b = 0;
+})
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'c') {
+        e.preventDefault();
+        displayValue = "";
+        display.textContent = "Cleared";
+        a = 0;
+        b = 0;
+    }
 })
 
 let backspaceBtn = document.querySelector('#backspaceBtn');
