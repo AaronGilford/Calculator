@@ -80,4 +80,10 @@ clearBtn.addEventListener('click', () => {
     b = 0;
 })
 
+let backspaceBtn = document.querySelector('#backspaceBtn');
+
+backspaceBtn.addEventListener('click', () => {
+    displayValue = displayValue.slice(0, -1);
+    display.textContent = displayValue;
+})
 
