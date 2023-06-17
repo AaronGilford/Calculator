@@ -37,6 +37,18 @@ for (i of numberBtns) {
     })
 }
 
+document.addEventListener('keypress', (e) => {
+    if (isFinite(e.key) === true) {
+        displayValue = displayValue + e.key;
+    }
+    if (e.key === '.' && !displayValue.includes('.')) {
+        displayValue = displayValue + e.key;
+        document.querySelector('#decimal').disabled = true;
+    } 
+    display.textContent = displayValue;
+})
+
+
 let operatorBtns = document.querySelectorAll('.operator');
 
 for (j of operatorBtns) {
@@ -83,7 +95,16 @@ clearBtn.addEventListener('click', () => {
 let backspaceBtn = document.querySelector('#backspaceBtn');
 
 backspaceBtn.addEventListener('click', () => {
-    displayValue = displayValue.slice(0, -1);
+    displayValue = displayValue.slice(-1);
     display.textContent = displayValue;
 })
 
+document.addEventListener('keydown', (e) => {
+    if(e.key === "Backspace" || e.key === "Delete") {
+        if (displayValue.charAt(displayValue.length -1) === '.') {
+            document.querySelector('#decimal').disabled = false;
+        }
+        displayValue = displayValue.slice(0, -1);
+        display.textContent = displayValue;
+    }
+})
