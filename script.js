@@ -1,7 +1,7 @@
-const add = (a, b) => {return +(a + b).toFixed(8);}
-const subtract = (a, b) => {return +(a - b).toFixed(8);}
-const multiply = (a, b) => {return +(a * b).toFixed(8);}
-const divide = (a, b) => {return +(a / b).toFixed(8);}
+const add = (a, b) => {return +(a + b).toFixed(10);}
+const subtract = (a, b) => {return +(a - b).toFixed(10);}
+const multiply = (a, b) => {return +(a * b).toFixed(10);}
+const divide = (a, b) => {return +(a / b).toFixed(10);}
 
 let a = 0;
 let b = 0;
@@ -19,7 +19,6 @@ const operate = function() {
     } else if (operator == "/" && b == 0) {
         display.textContent = "No dividing by 0!";
     }
-    
 }
 
 let displayValue = "";

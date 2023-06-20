@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#display {
+    display: flex;
+    justify-content: center;
+    border: darkblue 1px solid;
+    border-radius: 25px;
+    background-color: blue;
+    color: white;
+    margin-bottom: 10px;;
+    padding: 20px;
+    width: 260px;
+    font-size: 36px;
+
+}
+#container {
+    display: flex;
+    justify-content: center;
+    background-color: lightcyan;
+    
+}
+
+#numbers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.operators {
+    display: flex;
+}
+
+.columns {
+    display: flex;
+    flex-direction: column;
+}
+
+.delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.num {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    border-radius: 17px;
+    background-color: lightgrey
+}
+.operator {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    background-color: darkorchid;
+    color: white;
+    border-radius: 17px;
+}
+
+#backspaceBtn {
+    width: 100px;
+    height: 100px;
+    font-size: 22px;
+    background-color: yellow;
+}
+
+#clearBtn {
+    width: 100px;
+    height: 100px;
+    border-radius: 1px;
+    font-size: 22px;
+    color: darkred;
+    background-color: darkgrey;
+}
+
+#equals {
+    background-color: black;
+    color: white;
+}
+
+#decimal {
+    background-color: black;
+    color: white;
+}
